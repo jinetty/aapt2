@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
     inputs:
       logLevel:
-        description: 'Reason'     
-        required: false
+        description: 'in case binary got lost'     
+        required: true
         default: 'Update package'
 
 jobs:
@@ -18,7 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        target_arch: [x86_64, x86, arm64-v8a, armeabi-v7a]
+        target_arch: [arm64-v8a]
+#        target_arch: [x86_64, x86, arm64-v8a, armeabi-v7a]
       fail-fast: false
     steps:
       - name: Checkout
